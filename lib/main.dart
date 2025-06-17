@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:meal_app/categories.dart';
+import 'package:meal_app/widget/categories.dart';
 
 final theme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
