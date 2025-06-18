@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/model/meals.dart';
+import 'package:meal_app/Screen/meal_detail.dart';
 import 'package:meal_app/widget/meal_item_subpart.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -25,7 +26,11 @@ class MealItem extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       clipBehavior: Clip.hardEdge,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (cts) => MealItemCards(meal: meal)),
+          );
+        },
         child: Stack(
           children: [
             FadeInImage(
