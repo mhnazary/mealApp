@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/model/meals.dart';
+import 'package:meal_app/widget/meal_item_subpart.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem({super.key, required this.meal});
+
+  String get getComplexity {
+    return meal.complexity.name[0].toUpperCase() +
+        meal.complexity.name.substring(1);
+  }
+
+  String get getAffordability {
+    return meal.affordability.name[0].toUpperCase() +
+        meal.affordability.name.substring(1);
+  }
 
   final Meal meal;
 
@@ -33,6 +44,23 @@ class MealItem extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(meal.title, style: TextStyle(color: Colors.white)),
+                    SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MealItemSubpart(
+                          icon: Icons.schedule,
+                          label: "${meal.duration} min",
+                        ),
+                        SizedBox(width: 80),
+                        MealItemSubpart(icon: Icons.work, label: getComplexity),
+                        SizedBox(width: 80),
+                        MealItemSubpart(
+                          icon: Icons.attach_money,
+                          label: getAffordability,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
