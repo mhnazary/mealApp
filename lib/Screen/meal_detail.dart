@@ -11,7 +11,23 @@ class MealItemCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(meal.title, style: Theme.of(context).textTheme.titleLarge),
+        title: Text(
+          meal.title,
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge!.copyWith(color: Colors.white),
+        ),
+        actions: [
+          Container(
+            margin: EdgeInsets.only(right: 20),
+            child: IconButton(
+              onPressed: () {
+                print('start pressed !!!!!!!!');
+              },
+              icon: Icon(Icons.star),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
