@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/Screen/categories.dart';
-import 'package:meal_app/Screen/meal.dart';
 import 'package:meal_app/widget/favorite.dart';
+import 'package:meal_app/widget/main_drawer.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({super.key});
@@ -20,6 +20,13 @@ class _TabScreenState extends State<TabScreen> {
     });
   }
 
+  void _onSelectScreen(String Identifier) {
+    if (Identifier == "meals") {
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activePage = Categories(); // for body
@@ -31,6 +38,7 @@ class _TabScreenState extends State<TabScreen> {
     }
     return Scaffold(
       appBar: AppBar(title: Text(title)),
+      drawer: MainDrawer(onSelectscreen: _onSelectScreen),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         onTap: selectedtabs,
