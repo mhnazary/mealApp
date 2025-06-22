@@ -52,7 +52,8 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
             onTap: () {
-              onSelectscreen('category');
+              Navigator.of(context).pop();
+              Navigator.pushNamed(context, 'home');
             },
           ),
           ListTile(

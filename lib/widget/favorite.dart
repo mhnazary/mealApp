@@ -5,6 +5,17 @@ class Favorite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('This is Favorite page');
+    return Scaffold(
+      appBar: AppBar(title: Text('title of favorite')),
+      body: Column(
+        children: [
+          Container(
+            height: 300,
+            width: 300,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ],
+      ),
+    );
   }
 }

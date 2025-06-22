@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meal_app/Screen/categories.dart';
 import 'package:meal_app/Screen/tabs.dart';
+import 'package:meal_app/widget/favorite.dart';
 
 final theme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
@@ -20,6 +21,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: theme, home: TabScreen());
+    return MaterialApp(
+      theme: theme,
+      debugShowCheckedModeBanner: false,
+      home: TabScreen(),
+      routes: {"home": (context) => Favorite()},
+    );
   }
 }
