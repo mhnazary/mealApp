@@ -10,8 +10,8 @@ class Favorite extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 300,
-            width: 300,
+            height: 400,
+            width: 400,
             color: Theme.of(context).colorScheme.primary,
           ),
         ],
