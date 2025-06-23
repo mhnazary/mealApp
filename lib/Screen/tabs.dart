@@ -23,8 +23,8 @@ class _TabScreenState extends ConsumerState<TabScreen> {
     });
   }
 
-  void _onSelectScreen(String Identifier) {
-    if (Identifier == "meals") {
+  void _onSelectScreen(String identifier) {
+    if (identifier == "meals") {
     } else {
       Navigator.of(context).pop();
     }
@@ -36,8 +36,8 @@ class _TabScreenState extends ConsumerState<TabScreen> {
     var title = 'category'; // for title
 
     if (_selectedTab == 1) {
-      final favoritMeal = ref.watch(favoritMealProviderProvider);
-      activePage = MealScreen(title: 'mealScreen', meals: favoritMeal);
+      final favoriteMeal = ref.watch(favoritMealProviderProvider);
+      activePage = MealScreen(title: 'mealScreen', meals: favoriteMeal);
       title = "Favorite";
     }
     return Scaffold(

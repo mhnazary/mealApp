@@ -10,6 +10,15 @@ class MealScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (meals.isEmpty) {
+      return Center(
+        child: Text(
+          'No meals added yet!',
+          style: TextStyle(fontSize: 18, color: Colors.grey),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(title: Text(title)),
       body: ListView.builder(
