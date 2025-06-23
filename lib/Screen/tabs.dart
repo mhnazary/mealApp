@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meal_app/Screen/categories.dart';
+import 'package:meal_app/Screen/meal.dart';
 import 'package:meal_app/widget/favorite.dart';
 import 'package:meal_app/widget/main_drawer.dart';
+import 'package:meal_app/riverpod/meal_provider.dart';
 
-class TabScreen extends StatefulWidget {
+class TabScreen extends ConsumerStatefulWidget {
   const TabScreen({super.key});
 
   @override
-  State<TabScreen> createState() => _TabScreenState();
+  ConsumerState<TabScreen> createState() => _TabScreenState();
 }
 
-class _TabScreenState extends State<TabScreen> {
+class _TabScreenState extends ConsumerState<TabScreen> {
   int _selectedTab = 0;
 
   void selectedtabs(int index) {
@@ -33,7 +36,8 @@ class _TabScreenState extends State<TabScreen> {
     var title = 'category'; // for title
 
     if (_selectedTab == 1) {
-      activePage = Favorite();
+      final favoritMeal = ref.watch(favoritMealProviderProvider);
+      activePage = MealScreen(title: 'mealScreen', meals: favoritMeal);
       title = "Favorite";
     }
     return Scaffold(
@@ -41,6 +45,7 @@ class _TabScreenState extends State<TabScreen> {
       drawer: MainDrawer(onSelectscreen: _onSelectScreen),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedTab,
         onTap: selectedtabs,
         items: [
           BottomNavigationBarItem(

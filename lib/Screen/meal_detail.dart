@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/model/meals.dart';
+import 'package:meal_app/riverpod/meal_provider.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MealItemCards extends StatelessWidget {
+class MealItemCards extends ConsumerWidget {
   const MealItemCards({super.key, required this.meal});
 
   final Meal meal;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -22,7 +24,9 @@ class MealItemCards extends StatelessWidget {
             margin: EdgeInsets.only(right: 20),
             child: IconButton(
               onPressed: () {
-                print('start pressed !!!!!!!!');
+                ref
+                    .read(favoritMealProviderProvider.notifier)
+                    .toggleMealFavorite(meal);
               },
               icon: Icon(Icons.star),
             ),
