@@ -1,6 +1,6 @@
 # meal_app
 
-A new Flutter project.
+The Meal App is a simple Flutter application that allows users to explore different meal categories, view meal details, and mark meals as favorites. It's designed as a learning project to practice Flutter basics, navigation, state management with Riverpod, and responsive UI building.
 
 ## Getting Started
 
